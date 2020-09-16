@@ -2,20 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const Square = props => (
-  <button className="square" onClick={props.onClick}>
-    {props.value}
-  </button>
-);
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+	{this.props.value}
+      </button>
+    );
+  }
+}
 
 class Board extends React.Component {
   renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
+    return <Square value={i} />;
   }
 
   render() {
